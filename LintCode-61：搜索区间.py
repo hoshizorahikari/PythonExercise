@@ -7,7 +7,6 @@
 
 class Solution:
     def searchRange(self, A, target):
-        # write your code here
         if not A:
             return [-1, -1]
         start = 0
