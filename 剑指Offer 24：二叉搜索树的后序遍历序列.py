@@ -1,14 +1,12 @@
 """
-剑指offer24 二叉搜索树的后序遍历序列
-题目描述:输入一个整数数组，判断该数组是不是某二叉搜索树的后序遍历的结果。
-如果是则输出true,否则输出false。假设输入的数组的任意两个数字都互不相同。
-
+剑指Offer 24：二叉搜索树的后序遍历序列
+题目：输入一个整数数组，判断是不是某二叉搜索树的后序遍历的结果。
+如果是则输出true，否则输出false。假设输入的数组没有数字重复。
 """
 
 
 class Solution:
     def VerifySquenceOfBST(self, sequence):
-        # write code here
         if not sequence:
             return False
         return self.verify(sequence, 0, len(sequence) - 1)
@@ -28,22 +26,6 @@ class Solution:
         left = self.verify(lst, start, mid - 1) if mid > start else True
         right = self.verify(lst, mid, end - 1) if mid < end else True
         return left and right
-
-    def VerifySquenceOfBST_2(self, sequence):
-        if not sequence:
-            return False
-        i = 0
-        end = len(sequence) - 1
-        while end > 0:
-            while sequence[i] < sequence[end]:
-                i += 1
-            while sequence[i] > sequence[end]:
-                i += 1
-            if i < end:
-                return False
-            i = 0
-            end -= 1
-        return True
 
 
 if __name__ == '__main__':
